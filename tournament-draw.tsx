@@ -36,6 +36,7 @@ const translations = {
     main_title: "Lucky Draw",
     main_subtitle: "Fair & Random Lottery System",
     main_description: "Create exciting lottery draws with animated results and multi-language support",
+    document_title: "Lucky Draw - Fair & Random Lottery System",
   },
   spanish: {
     heading: "Sorteo",
@@ -59,6 +60,7 @@ const translations = {
     main_title: "Sorteo de la Suerte",
     main_subtitle: "Sistema de Lotería Justo y Aleatorio",
     main_description: "Crea sorteos emocionantes con resultados animados y soporte multiidioma",
+    document_title: "SortAr - Sorteos en línea aleatorios y justos",
   },
   french: {
     heading: "Tirage au sort",
@@ -82,6 +84,7 @@ const translations = {
     main_title: "Tirage Chanceux",
     main_subtitle: "Système de Loterie Équitable et Aléatoire",
     main_description: "Créez des tirages passionnants avec des résultats animés et un support multilingue",
+    document_title: "Tirage Chanceux - Système de loterie équitable et aléatoire",
   },
   german: {
     heading: "Auslosung",
@@ -106,6 +109,7 @@ const translations = {
     main_subtitle: "Faires & Zufälliges Lotteriesystem",
     main_description:
       "Erstellen Sie aufregende Auslosungen mit animierten Ergebnissen und mehrsprachiger Unterstützung",
+    document_title: "Glücks-Ziehung - Faires und zufälliges Lotteriesystem",
   },
   italian: {
     heading: "Estrazione",
@@ -129,6 +133,7 @@ const translations = {
     main_title: "Estrazione Fortunata",
     main_subtitle: "Sistema di Lotteria Equo e Casuale",
     main_description: "Crea estrazioni emozionanti con risultati animati e supporto multilingue",
+    document_title: "Estrazione Fortunata - Sistema di lotteria equo e casuale",
   },
   portuguese_br: {
     heading: "Sorteio",
@@ -152,6 +157,7 @@ const translations = {
     main_title: "Sorteio da Sorte",
     main_subtitle: "Sistema de Loteria Justo e Aleatório",
     main_description: "Crie sorteios emocionantes com resultados animados e suporte multilíngue",
+    document_title: "Sorteio da Sorte - Sistema de loteria justo e aleatório",
   },
   japanese: {
     heading: "抽選",
@@ -175,6 +181,7 @@ const translations = {
     main_title: "ラッキードロー",
     main_subtitle: "公正でランダムな抽選システム",
     main_description: "アニメーション結果と多言語サポートで魅力的な抽選を作成",
+    document_title: "ラッキードロー - 公正でランダムな抽選システム",
   },
   chinese_simplified: {
     heading: "抽奖",
@@ -198,6 +205,7 @@ const translations = {
     main_title: "幸运抽奖",
     main_subtitle: "公平随机抽奖系统",
     main_description: "创建具有动画效果和多语言支持的精彩抽奖",
+    document_title: "幸运抽奖 - 公平随机抽奖系统",
   },
   arabic: {
     heading: "سحب اليانصيب",
@@ -221,6 +229,7 @@ const translations = {
     main_title: "السحب المحظوظ",
     main_subtitle: "نظام يانصيب عادل وعشوائي",
     main_description: "أنشئ سحوبات مثيرة مع نتائج متحركة ودعم متعدد اللغات",
+    document_title: "السحب المحظوظ - نظام يانصيب عادل وعشوائي",
   },
   hindi: {
     heading: "लॉटरी ड्रॉ",
@@ -244,6 +253,7 @@ const translations = {
     main_title: "भाग्यशाली ड्रॉ",
     main_subtitle: "निष्पक्ष और यादृच्छिक लॉटरी सिस्टम",
     main_description: "एनिमेटेड परिणामों और बहुभाषी समर्थन के साथ रोमांचक लॉटरी बनाएं",
+    document_title: "भाग्यशाली ड्रॉ - निष्पक्ष और यादृच्छिक लॉटरी सिस्टम",
   },
 }
 
@@ -260,6 +270,11 @@ export default function Component() {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
   const t = translations[language]
+
+  // Update document title when language changes
+  useEffect(() => {
+    document.title = t.document_title
+  }, [language, t.document_title])
 
   const addParticipant = () => {
     setParticipants([...participants, ""])
