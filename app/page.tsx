@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import Component from "../tournament-draw"
+import React from "react";
+import Component from "../tournament-draw";
 
 export default function Page() {
-  return <Component />
+  return <Component />;
 }
